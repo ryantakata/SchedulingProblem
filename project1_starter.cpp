@@ -143,16 +143,23 @@ void findAvail(std::string busy1, std::string work1, std::string busy2, std::str
         }
     }
 
-    std::cout << "[";
-    for (auto i = allTimeSlots.begin(); i != allTimeSlots.end();)
+    if(allTimeSlots.size() == 0)
     {
-        std::cout << *i;
-        if (++i != allTimeSlots.end())
-        {
-            std::cout << ",";
-        }
+        std::cout << "No available time slots found";
     }
-    std::cout << "]";
+    else
+    {
+        std::cout << "[";
+        for (auto i = allTimeSlots.begin(); i != allTimeSlots.end();)
+        {
+            std::cout << *i;
+            if (++i != allTimeSlots.end())
+            {
+                std::cout << ",";
+            }
+        }
+        std::cout << "]";
+    }
 
 }
 
@@ -169,7 +176,6 @@ int main()
         findAvail(busy1, work1, busy2, work2, duration, unAvail, clockIn);
         std::cout << std::endl;
     }
-    
     
     return 0;
 }
