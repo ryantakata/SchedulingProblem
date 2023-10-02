@@ -143,30 +143,25 @@ void findAvail(std::string busy1, std::string work1, std::string busy2, std::str
         }
     }
 
-    if(allTimeSlots.size() == 0)
+    
+    
+    std::cout << "[";
+    for (auto i = allTimeSlots.begin(); i != allTimeSlots.end();)
     {
-        std::cout << "No available time slots found";
-    }
-    else
-    {
-        std::cout << "[";
-        for (auto i = allTimeSlots.begin(); i != allTimeSlots.end();)
+        std::cout << *i;
+        if (++i != allTimeSlots.end())
         {
-            std::cout << *i;
-            if (++i != allTimeSlots.end())
-            {
-                std::cout << ",";
-            }
+            std::cout << ",";
         }
-        std::cout << "]";
     }
+    std::cout << "]";
+    
 
 }
 
 int main()
 {
     std::ifstream theFile("input.txt");                         //Gets the input file
-    std::ofstream output("output.txt");
     std::vector<std::string> unAvail, clockIn;                  //Vector of unavailable times and total clocked in times
     std::string busy1, busy2, work1, work2;
     int duration;
