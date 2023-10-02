@@ -143,8 +143,6 @@ void findAvail(std::string busy1, std::string work1, std::string busy2, std::str
         }
     }
 
-    
-    
     std::cout << "[";
     for (auto i = allTimeSlots.begin(); i != allTimeSlots.end();)
     {
@@ -155,8 +153,6 @@ void findAvail(std::string busy1, std::string work1, std::string busy2, std::str
         }
     }
     std::cout << "]";
-    
-
 }
 
 int main()
