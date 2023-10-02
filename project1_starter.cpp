@@ -4,7 +4,7 @@
 #include <fstream>
 
 void findAvail(std::string busy1, std::string work1, std::string busy2, std::string work2, int duration, 
-               std::vector<std::string> unAvail, std::vector<std::string> clockedIn)
+               std::vector<std::string> unAvail, std::vector<std::string> clockedIn, std::ofstream& output)
 {
     std::vector<std::string> allTimeSlots;                          // Holds the total time slots available for the meeting
     char cmp = ':';                                                 // Used in checking time format and inserting time into unAvail vector
@@ -144,27 +144,33 @@ void findAvail(std::string busy1, std::string work1, std::string busy2, std::str
     }
 
     std::cout << "[";
+    output << "[";
     for (auto i = allTimeSlots.begin(); i != allTimeSlots.end();)
     {
         std::cout << *i;
+        output << *i;
         if (++i != allTimeSlots.end())
         {
             std::cout << ",";
+            output << ",";
         }
     }
     std::cout << "]";
+    output << "]";
 }
 
 int main()
 {
     std::ifstream theFile("input.txt");                         //Gets the input file
+    std::ofstream out("output.txt");
     std::vector<std::string> unAvail, clockIn;                  //Vector of unavailable times and total clocked in times
     std::string busy1, busy2, work1, work2;
     int duration;
 
     while(theFile >> busy1 >> work1 >> busy2 >> work2 >> duration)  //Reads the input file and puts information into variables
     {
-        findAvail(busy1, work1, busy2, work2, duration, unAvail, clockIn);
+        findAvail(busy1, work1, busy2, work2, duration, unAvail, clockIn, out);
+        out << std::endl;
         std::cout << std::endl;
     }
     

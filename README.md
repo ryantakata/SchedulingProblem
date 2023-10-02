@@ -12,10 +12,10 @@ Have an "input.txt" file in the same directory
 
 Pseudocode
 
-Create a void function that takes in 7 parameters. The unavailability of both people,
+Create a void function that takes in 8 parameters. The unavailability of both people,
 the clock in schedule of both people, the duration of the meeting, an unavailability string vector
-containing the total unavailable times, and a string vector that takes in the time that the 
-group is clocked in for the day.
+containing the total unavailable times, a string vector that takes in the time that the 
+group is clocked in for the day, and an ofstream variable to print to an output file.
 
 Create a string vector to keep track of the total available time slots.
 
